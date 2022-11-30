@@ -1,4 +1,4 @@
-CREATE TABLE `data_platform_bulk_transfers_open_canvas_bulk_transfers_data`
+CREATE TABLE `data_platform_payment_requisition_open_canvas_bulk_transfers_data`
 (
   `Payer`                                int(12) NOT NULL,
   `PayerPaymentDate`                     date NOT NULL,

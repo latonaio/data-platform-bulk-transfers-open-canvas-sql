@@ -1,4 +1,4 @@
-CREATE TABLE `data_platform_bulk_transfers_open_canvas_fixed_request_data`
+CREATE TABLE `data_platform_payment_requisition_open_canvas_fixed_request_data`
 (
   `Payer`                                int(12) NOT NULL,
   `PayerPaymentDate`                     date NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE `data_platform_bulk_transfers_open_canvas_fixed_request_data`
 
     PRIMARY KEY (`Payer`, `PayerPaymentDate`, `PayerPaymentRequisitionID`),
 
-    CONSTRAINT `DataPlatformBulkTransfersOpenCanvasFixedRequestDataPayer_fk` FOREIGN KEY (`Payer`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`),
+    CONSTRAINT `DataPlatformPaymentRequisitionOpenCanvasFixedRequestDataPayer_fk` FOREIGN KEY (`Payer`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`),
 
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
