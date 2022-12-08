@@ -1,9 +1,9 @@
 CREATE TABLE `data_platform_payment_requsition_open_canvas_transactions_data`
 (
+  `PayerPaymentRequisitionID`            int(16) NOT NULL,
+  `PayerPaymentRequisitionItem`          int(6) NOT NULL,
   `Payer`                                int(12) NOT NULL,
   `PayerPaymentDate`                     date NOT NULL,
-  `PayerPaymentRequisitionID`            int(6) NOT NULL,
-  `PayerPaymentRequisitionItem`          int(6) NOT NULL,
   `Payee`                                int(12) NOT NULL,
   `item_id`                              varchar(5) NOT NULL,
   `beneficiary_bank_code`                varchar(4) NOT NULL,
@@ -24,9 +24,9 @@ CREATE TABLE `data_platform_payment_requsition_open_canvas_transactions_data`
   `identification`                       varchar(1) DEFAULT NULL,
   `dummy`                                varchar(7) DEFAULT NULL,
   
-    PRIMARY KEY (`Payer`, `PayerPaymentDate`, `PayerPaymentRequisitionID`, `PayerPaymentRequisitionItem`),
+    PRIMARY KEY (`PayerPaymentRequisitionID`, `PayerPaymentRequisitionItem`),
 
-    CONSTRAINT `DataPlatformBulkPaymentRequisitionOpenCanvasTransactionsData_fk` FOREIGN KEY (`Payer`, `PayerPaymentDate`, `PayerPaymentRequisitionID`) REFERENCES `data_platform_payment_requisition_open_canvas_fixed_request_data` (`Payer`, `PayerPaymentDate`, `PayerPaymentRequisitionID`),
+    CONSTRAINT `DataPlatformBulkPaymentRequisitionOpenCanvasTransactionsData_fk` FOREIGN KEY (`PayerPaymentRequisitionID`) REFERENCES `data_platform_payment_requisition_open_canvas_fixed_request_data` (`PayerPaymentRequisitionID`),
     CONSTRAINT `DataPlatformBulkPaymentRequisitionOpenCanvasTransactionsDataPayee_fk` FOREIGN KEY (`Payee`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`)
 
 ) ENGINE = InnoDB
